@@ -17,6 +17,9 @@ RUN conda install -y numpy scipy pandas matplotlib
 # Now some geospatial tools
 RUN conda install -y gdal shapely fiona rasterio pyproj cartopy descartes
 
+# Add git so you can clone the lsdmappingtools repo
+RUN conda install -y git
+
 # Set the working directory
 WORKDIR /LSDTopoTools
 
