@@ -14,6 +14,9 @@ RUN conda install -y numpy scipy pandas matplotlib
 # Add the conda forge
 RUN conda config --add channels conda-forge
 
+# Now some geospatial tools
+conda install gdal shapely fiona rasterio pyproj cartopy descartes
+
 # Set the working directory
 WORKDIR /LSDTopoTools
 
