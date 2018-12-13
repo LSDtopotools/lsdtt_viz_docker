@@ -8,11 +8,11 @@ MAINTAINER Simon Mudd (simon.m.mudd@ed.ac.uk) and Fiona Clubb (clubb@uni-potsdam
 # Need this to shortcut the stupid tzdata noninteractive thing
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Now add some conda packages
-RUN conda install -y numpy scipy pandas matplotlib 
-
 # Add the conda forge
 RUN conda config --add channels conda-forge
+
+# Now add some conda packages
+RUN conda install -y numpy scipy pandas matplotlib 
 
 # Now some geospatial tools
 RUN conda install -y gdal shapely fiona rasterio pyproj cartopy descartes
