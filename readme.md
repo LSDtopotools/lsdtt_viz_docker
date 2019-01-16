@@ -38,7 +38,7 @@ $ docker run -it -v C:\LSDTopoTools:/LSDTopoTools lsdtopotools/lsdtt_viz_docker
   2. The `-v` stands for "volume" and in practice it links the files in the docker container with files in your host operating system. 
   3. After the `-v` you need to tell docker where the directories are on both the host operating system (in this case `C:\LSDTopoTools`) and the container (in this case `/LSDTopoTools`). These are separated by a colon (`:`).
 3. Once you do this you will get a `#` symbol showing that you are inside the container. You can now do *LSDTopoTools* stuff. 
-4. You can clone the LSDMapping tools repository by running `sh LSDTT_start.sh`
+4. *IMPORTANT* you will need to run a script to clone or update *LSDMappingTools*. Run this by simply entering `LSDTT_start.sh` into the command line. 
 5. To exit the container use `ctrl-D`. The containers all have linux environments so you will be able to use linux command line tools within the docker container.
 
 ### Docker notes
