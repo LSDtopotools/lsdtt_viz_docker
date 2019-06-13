@@ -23,11 +23,11 @@ RUN conda install -y "openssl=1.0.2"
 # Add git so you can clone the lsdmappingtools repo
 RUN conda install -y git
 
-# Some stuff for text formatting in images
-RUN conda install -y texlive-fonts-recommended texlive-fonts-extra dvipng
-
 # Now geopandas
 RUN conda install -y geopandas
+
+# Some stuff for text formatting in images
+RUN conda install -y texlive-core
 
 # Set the working directory
 WORKDIR /LSDTopoTools
