@@ -27,7 +27,11 @@ RUN conda install -y git
 RUN conda install -y geopandas
 
 # Some stuff for text formatting in images
-RUN conda install -y texlive-core
+# RUN conda install -y texlive-core
+RUN apt-get update --fix-missing && apt-get install -y texlive-fonts-recommended texlive-fonts-extra dvipng
+
+# See if you can get ffmpeg for videos
+RUN apt-get update && apt-get install -y ffmpeg
 
 # Set the working directory
 WORKDIR /LSDTopoTools
