@@ -24,18 +24,9 @@ RUN conda config --set channel_priority strict
 RUN conda install -y numpy scipy pandas matplotlib 
 
 # Now some geospatial tools
-RUN conda install -y "gdal=2.3.2" geopandas shapely fiona rasterio pyproj cartopy descartes utm
-
-# Now try to fix ssl
-RUN conda install -y "openssl=1.0.2"
-
-
-
-# Now geopandas
-#RUN conda install -y geopandas
+RUN conda install -y gdal geopandas shapely fiona rasterio pyproj cartopy descartes utm
 
 # Some stuff for text formatting in images
-# RUN conda install -y texlive-core
 # RUN apt-get update --fix-missing && apt-get install -y texlive-fonts-recommended texlive-fonts-extra dvipng
 
 # See if you can get ffmpeg for videos
