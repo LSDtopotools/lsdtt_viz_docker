@@ -12,7 +12,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN conda install -y git
 
 # Update conda
-RUN conda update -n base -c defaults conda
+RUN conda update -c defaults conda
 
 # Add the conda forge
 RUN conda config --add channels conda-forge
