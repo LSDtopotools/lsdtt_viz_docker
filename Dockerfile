@@ -8,8 +8,17 @@ MAINTAINER Simon Mudd (simon.m.mudd@ed.ac.uk) and Fiona Clubb (clubb@uni-potsdam
 # Need this to shortcut the stupid tzdata noninteractive thing
 ARG DEBIAN_FRONTEND=noninteractive
 
+# Add git so you can clone the lsdmappingtools repo
+RUN conda install -y git
+
+# Update conda
+RUN conda update -n base -c defaults conda
+
 # Add the conda forge
 RUN conda config --add channels conda-forge
+
+# Set the channel
+RUN conda config --set channel_priority strict
 
 # Now add some conda packages
 RUN conda install -y numpy scipy pandas matplotlib 
@@ -20,18 +29,17 @@ RUN conda install -y "gdal=2.3.2" geopandas shapely fiona rasterio pyproj cartop
 # Now try to fix ssl
 RUN conda install -y "openssl=1.0.2"
 
-# Add git so you can clone the lsdmappingtools repo
-RUN conda install -y git
+
 
 # Now geopandas
 #RUN conda install -y geopandas
 
 # Some stuff for text formatting in images
 # RUN conda install -y texlive-core
-RUN apt-get update --fix-missing && apt-get install -y texlive-fonts-recommended texlive-fonts-extra dvipng
+# RUN apt-get update --fix-missing && apt-get install -y texlive-fonts-recommended texlive-fonts-extra dvipng
 
 # See if you can get ffmpeg for videos
-RUN apt-get update && apt-get install -y ffmpeg
+# RUN apt-get update && apt-get install -y ffmpeg
 
 # Set the working directory
 WORKDIR /LSDTopoTools
