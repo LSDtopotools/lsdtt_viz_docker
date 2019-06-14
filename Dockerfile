@@ -15,7 +15,7 @@ RUN conda config --add channels conda-forge
 RUN conda install -y numpy scipy pandas matplotlib 
 
 # Now some geospatial tools
-RUN conda install -y "gdal=2.3.2" shapely fiona rasterio pyproj cartopy descartes utm
+RUN conda install -y "gdal=2.3.2" geopandas shapely fiona rasterio pyproj cartopy descartes utm
 
 # Now try to fix ssl
 RUN conda install -y "openssl=1.0.2"
@@ -24,7 +24,7 @@ RUN conda install -y "openssl=1.0.2"
 RUN conda install -y git
 
 # Now geopandas
-RUN conda install -y geopandas
+#RUN conda install -y geopandas
 
 # Some stuff for text formatting in images
 # RUN conda install -y texlive-core
