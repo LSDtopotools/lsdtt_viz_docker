@@ -8,9 +8,6 @@ MAINTAINER Simon Mudd (simon.m.mudd@ed.ac.uk) and Fiona Clubb (clubb@uni-potsdam
 # Need this to shortcut the stupid tzdata noninteractive thing
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Add git so you can clone the lsdmappingtools repo
-RUN conda install -y git
-
 # Update conda
 RUN conda update -c defaults conda
 
@@ -19,6 +16,9 @@ RUN conda config --add channels conda-forge
 
 # Set the channel
 RUN conda config --set channel_priority strict
+
+# Add git so you can clone the lsdmappingtools repo
+RUN conda install -y git
 
 # Now add some conda packages
 RUN conda install -y numpy scipy pandas matplotlib 
