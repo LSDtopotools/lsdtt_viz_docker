@@ -27,10 +27,11 @@ RUN conda install -y numpy scipy pandas matplotlib
 RUN conda install -y gdal geopandas shapely fiona rasterio pyproj cartopy descartes utm
 
 # Some stuff for text formatting in images
+# This is HUGE so we are not goint to install it for now
 # RUN apt-get update --fix-missing && apt-get install -y texlive-fonts-recommended texlive-fonts-extra dvipng
 
-# See if you can get ffmpeg for videos
-# RUN apt-get update && apt-get install -y ffmpeg
+# Some of the plotting tools use ffmpeg
+RUN conda install -y ffmpeg
 
 # Set the working directory
 WORKDIR /LSDTopoTools
