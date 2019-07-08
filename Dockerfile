@@ -9,11 +9,13 @@ MAINTAINER Simon Mudd (simon.m.mudd@ed.ac.uk) and Fiona Clubb (clubb@uni-potsdam
 ARG DEBIAN_FRONTEND=noninteractive
 
 
+# Update conda
+RUN conda install -y -c conda-forge conda=4.6.14
+
 # Add the conda forge
 RUN conda config --add channels conda-forge
 
-# Update conda
-RUN conda update -y -c conda-forge conda
+
 
 # Set the channel
 RUN conda config --set channel_priority strict
@@ -40,4 +42,3 @@ WORKDIR /LSDTopoTools
 # Copy the startup script
 COPY Start_LSDTT.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/Start_LSDTT.sh
-
