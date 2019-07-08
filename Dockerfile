@@ -9,7 +9,7 @@ MAINTAINER Simon Mudd (simon.m.mudd@ed.ac.uk) and Fiona Clubb (clubb@uni-potsdam
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Update conda
-RUN conda update -y -c defaults conda
+RUN conda update -y -c conda-forge conda
 
 # Add the conda forge
 RUN conda config --add channels conda-forge
