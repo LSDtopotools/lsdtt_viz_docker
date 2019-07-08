@@ -47,7 +47,15 @@ $ docker run -it -v C:\LSDTopoTools:/LSDTopoTools lsdtopotools/lsdtt_viz_docker
 2. The programs are called with the pattern `python PlotChiAnalysis -h`
 3. The `-h` is a help flag that will list all the options.
 
-### Docker notes
+## If nothing works
+
+The complexity of our python enviroment leads to many conflicts. We store functioning environments in the directory `conda_environments`. 
+
+If you have conda on your computer, then you can use the conda environment files in this directory to build a functioning environment.
+
+Use the command `$ conda create --name <env> --file <this file>`
+
+## Docker notes
 
 If you want to know all about Docker, make sure to read the [docker documentation](https://docs.docker.com/). A note of warning: Docker documentation is similar to documentation for the [turbo encabulator](https://www.youtube.com/watch?v=rLDgQg6bq7o). Below are some brief notes to help you with the essentials. 
 
