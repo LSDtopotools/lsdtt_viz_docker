@@ -13,7 +13,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN conda config --add channels conda-forge
 
 # Set the channel
-RUN conda config --set channel_priority strict
+#RUN conda config --set channel_priority strict
 
 # Update conda
 RUN conda update -y -c conda-forge conda
