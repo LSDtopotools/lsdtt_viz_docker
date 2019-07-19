@@ -36,9 +36,16 @@ RUN conda install -y gdal geopandas shapely fiona rasterio pyproj cartopy descar
 # Some of the plotting tools use ffmpeg
 RUN conda install -y ffmpeg
 
+# Some tools for fetching data
+RUN conda install -y wget unzip
+
 # Set the working directory
 WORKDIR /LSDTopoTools
 
 # Copy the startup script
 COPY Start_LSDTT.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/Start_LSDTT.sh
+
+# Copy the script for fetching example data 
+COPY Get_LSDTT_example_data.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/Get_LSDTT_example_data.sh
