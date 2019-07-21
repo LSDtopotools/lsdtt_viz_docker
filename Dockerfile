@@ -9,25 +9,22 @@ MAINTAINER Simon Mudd (simon.m.mudd@ed.ac.uk) and Fiona Clubb (clubb@uni-potsdam
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Add a bunch of utilities that will be used to fetch data
-RUN apt-get update --fix-missing && apt-get install -y git ffmpeg wget tzdata
+RUN apt-get update && apt-get install -y git ffmpeg wget tzdata
 
 # Update conda
-RUN conda install -y -c conda-forge conda=4.6.14
+RUN conda update -n base -c defaults conda
 
 # Add the conda forge
 RUN conda config --add channels conda-forge
 
 # Set the channel
-RUN conda config --set channel_priority strict
+#RUN conda config --set channel_priority strict
 
 # Use python 3.6.7
-RUN conda install -y python=3.6.7
+#RUN conda install -y python=3.6.7
 
 # Now add some conda packages
-RUN conda install -y numpy scipy pandas matplotlib 
-
-# Now some geospatial tools
-RUN conda install -y gdal geopandas shapely fiona rasterio pyproj cartopy descartes utm
+RUN conda install -y -c conda-forge numpy scipy pandas=0.24.2 matplotlib gdal geopandas shapely fiona rasterio pyproj cartopy descartes utm
 
 # Some stuff for text formatting in images
 # This is HUGE so we are not goint to install it for now
