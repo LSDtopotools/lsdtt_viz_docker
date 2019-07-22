@@ -26,11 +26,14 @@ RUN conda config --add channels conda-forge
 # Set the channel
 #RUN conda config --set channel_priority strict
 
-# Use python 3.6.7
-#RUN conda install -y python=3.6.7
-
 # Now add some conda packages
-RUN conda install -y -c conda-forge numpy scipy pandas=0.24.2 matplotlib gdal geopandas shapely fiona rasterio pyproj cartopy descartes utm
+RUN conda install -y -c conda-forge \
+    python=3.6.7 numpy scipy \
+    pandas=0.24.2 matplotlib \
+    gdal geopandas shapely \
+    fiona rasterio \
+    pyproj cartopy \
+    descartes utm
 
 # Some stuff for text formatting in images
 # This is HUGE so we are not goint to install it for now
