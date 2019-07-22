@@ -9,7 +9,13 @@ MAINTAINER Simon Mudd (simon.m.mudd@ed.ac.uk) and Fiona Clubb (clubb@uni-potsdam
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Add a bunch of utilities that will be used to fetch data
-RUN apt-get update && apt-get install -y git ffmpeg wget tzdata
+RUN apt-get update && apt-get install -y \ 
+    git \
+    ffmpeg \
+    wget \
+    tzdata \ 
+    zip \
+    && rm -rf /var/lib/apt/lists/*    
 
 # Update conda
 RUN conda update -n base -c defaults conda
@@ -29,6 +35,7 @@ RUN conda install -y -c conda-forge numpy scipy pandas=0.24.2 matplotlib gdal ge
 # Some stuff for text formatting in images
 # This is HUGE so we are not goint to install it for now
 # RUN apt-get update --fix-missing && apt-get install -y texlive-fonts-recommended texlive-fonts-extra dvipng
+
 
 # Set the working directory
 WORKDIR /LSDTopoTools
