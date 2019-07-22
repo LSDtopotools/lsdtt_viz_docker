@@ -17,14 +17,14 @@ RUN apt-get update && apt-get install -y \
     zip \
     && rm -rf /var/lib/apt/lists/*    
 
-# Update conda
-RUN conda update -c conda-forge conda
-
 # Add the conda forge
 RUN conda config --add channels conda-forge
 
 # Set the channel
-#RUN conda config --set channel_priority strict
+RUN conda config --set channel_priority strict
+
+# Update conda
+RUN conda update -c conda-forge conda
 
 # Now add some conda packages
 RUN conda install -y -c conda-forge \
@@ -34,10 +34,6 @@ RUN conda install -y -c conda-forge \
     fiona rasterio \
     pyproj cartopy \
     descartes utm
-
-# Some stuff for text formatting in images
-# This is HUGE so we are not goint to install it for now
-# RUN apt-get update --fix-missing && apt-get install -y texlive-fonts-recommended texlive-fonts-extra dvipng
 
 # Set the working directory
 WORKDIR /LSDTopoTools
