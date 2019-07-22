@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*    
 
 # Update conda
-RUN conda update -n base -c defaults conda
+RUN conda update -c conda-forge conda
 
 # Add the conda forge
 RUN conda config --add channels conda-forge
