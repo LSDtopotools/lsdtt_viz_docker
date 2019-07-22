@@ -36,7 +36,6 @@ RUN conda install -y -c conda-forge numpy scipy pandas=0.24.2 matplotlib gdal ge
 # This is HUGE so we are not goint to install it for now
 # RUN apt-get update --fix-missing && apt-get install -y texlive-fonts-recommended texlive-fonts-extra dvipng
 
-
 # Set the working directory
 WORKDIR /LSDTopoTools
 
@@ -47,3 +46,14 @@ RUN chmod +x /usr/local/bin/Start_LSDTT.sh
 # Copy the script for fetching example data 
 COPY Get_LSDTT_example_data.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/Get_LSDTT_example_data.sh
+
+# Copy the Liberation Sans fonts and activate them
+RUN mkdir /usr/share/fonts/truetype/LiberationSans/
+COPY ./LiberationSans/LiberationSans-Bold.ttf /usr/share/fonts/truetype/LiberationSans/
+COPY ./LiberationSans/LiberationSans-BoldItalic.ttf /usr/share/fonts/truetype/LiberationSans/
+COPY ./LiberationSans/LiberationSans-Italic.ttf /usr/share/fonts/truetype/LiberationSans/
+COPY ./LiberationSans/LiberationSans-Regular.ttf /usr/share/fonts/truetype/LiberationSans/
+
+RUN fc-cache -fv
+RUN rm -fr ~/.cache/matplotlib
+
